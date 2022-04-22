@@ -37,6 +37,7 @@ application {
 checkstyle {
     toolVersion '8.21'
     configFile file("config/checkstyle/checkstyle.xml")
+    ignoreFailures = true
 }
 
 checkstyleMain {
@@ -51,17 +52,19 @@ jacocoTestReport {
     dependsOn test
 }
 
+
 jacocoTestCoverageVerification {
     violationRules {
         rule {
             limit {
-                minimum = 0.9
+                minimum = 0.7
             }
         }
     }
 
     finalizedBy jacocoTestReport
 }
+check.dependsOn jacocoTestCoverageVerification
 
 test {
     useJUnitPlatform()

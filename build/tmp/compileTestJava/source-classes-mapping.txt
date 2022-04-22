@@ -1,3 +1,6 @@
+org/hyperledger/fabric/samples/assettransfer/AssetTest.java
+ org.hyperledger.fabric.samples.assettransfer.AssetTest
+ org.hyperledger.fabric.samples.assettransfer.AssetTest$Equality
 org/hyperledger/fabric/samples/assettransfer/AssetTransferTest.java
  org.hyperledger.fabric.samples.assettransfer.AssetTransferTest
  org.hyperledger.fabric.samples.assettransfer.AssetTransferTest$DeleteAssetTransaction
@@ -7,6 +10,3 @@ org/hyperledger/fabric/samples/assettransfer/AssetTransferTest.java
  org.hyperledger.fabric.samples.assettransfer.AssetTransferTest$MockKeyValue
  org.hyperledger.fabric.samples.assettransfer.AssetTransferTest$TransferAssetTransaction
  org.hyperledger.fabric.samples.assettransfer.AssetTransferTest$UpdateAssetTransaction
-org/hyperledger/fabric/samples/assettransfer/AssetTest.java
- org.hyperledger.fabric.samples.assettransfer.AssetTest
- org.hyperledger.fabric.samples.assettransfer.AssetTest$Equality

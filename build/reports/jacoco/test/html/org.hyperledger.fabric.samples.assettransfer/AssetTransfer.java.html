@@ -236,5 +236,34 @@ import com.owlike.genson.Genson;
 
 <span class="fc" id="L237">        return response;</span>
     }
+
+
+/**
+     * Duplicate a asset and assign to a new owner.
+     *
+     * @param ctx the transaction context
+     * @param assetID the ID of the asset being duplicated
+     * @param newOwner the owner of the duplicated asset
+     * @return duplicate asset
+     */
+
+    @Transaction(intent = Transaction.TYPE.SUBMIT)
+    public Asset DuplicateAsset(final Context ctx, final String assetID, final String newOwner) {
+<span class="nc" id="L252">        ChaincodeStub stub = ctx.getStub();</span>
+<span class="nc" id="L253">        String assetJSON = stub.getStringState(assetID);</span>
+
+<span class="nc bnc" id="L255" title="All 4 branches missed.">        if (assetJSON == null || assetJSON.isEmpty()) {</span>
+<span class="nc" id="L256">            String errorMessage = String.format(&quot;Asset %s does not exist&quot;, assetID);</span>
+<span class="nc" id="L257">            System.out.println(errorMessage);</span>
+<span class="nc" id="L258">            throw new ChaincodeException(errorMessage, AssetTransferErrors.ASSET_NOT_FOUND.toString());</span>
+        }
+
+<span class="nc" id="L261">        Asset asset = genson.deserialize(assetJSON, Asset.class);</span>
+
+<span class="nc" id="L263">        Asset duplicateAsset = CreateAsset(ctx, assetID+&quot;_duplicate&quot;, asset.getColor(), asset.getSize(),</span>
+<span class="nc" id="L264">            newOwner, asset.getAppraisedValue() );</span>
+
+<span class="nc" id="L266">        return duplicateAsset;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
